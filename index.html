@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        img{
+            width: 150px;
+            border-radius: 50%;
+        }
+        body{
+            background-color: #414141;
+            color: aliceblue;
+            display: flex;
+            gap: 10px;
+        }
+        a{
+            color: aliceblue;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <ul id="images">
+        <li><img src="https://www.shutterstock.com/image-photo/deep-pink-hibiscus-flower-growing-260nw-2381379557.jpg" alt="flower1" id="one" ></li>
+        <li><img src="https://i.pinimg.com/736x/50/fb/0f/50fb0f165a098d315df79aec2ee790a8.jpg" alt="flower2" id="two"></li>
+        <li><img src="https://preview.redd.it/i-illustrated-a-vector-flower-in-adobe-illustrator-and-im-v0-xqf7kiopl9nb1.png?width=640&crop=smart&auto=webp&s=a59166cb8aff14e3f7f3b3aef1e43f4b92c271ce" alt="flower3" id="three"></li>
+        <li><img src="https://i.pinimg.com/736x/bc/e1/0c/bce10cb073a087589351bcb55031c74d.jpg" alt="flower4" id="four"></li>
+        <li><a href="http://google.com">Google</a></li>
+    </ul>
+        <h1>
+            to the image click and check time stamp
+        </h1>
+    <script>
+        const img = document.getElementById('images')
+        const timeStamp = document.querySelector('h1')
+        img.addEventListener('click', function(event){
+            let removeIT = event.target.parentNode;
+            timeStamp.innerHTML = event.timeStamp.toFixed(2)
+            if(event.target.tagName === 'IMG'){
+                removeIT.remove()
+            }
+            console.log(event);
+        })
+        setInterval(function(){
+            let date = new Date()
+            timeStamp.innerHTML = date.toLocaleString()
+        },1000)
+    </script>
+</body>
+</html>
